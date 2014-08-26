@@ -64,7 +64,7 @@ class Blog extends CI_Controller{
 		$this->form_validation->set_rules('body','boby','required');
 		if($this->form_validation->run() === TRUE){
 			$this->blog_model->update_entry();
-			print 'edit successfully.';
+			redirect('blog/post/'.$_POST['id']);
 		}
 	}
 
