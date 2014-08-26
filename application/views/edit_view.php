@@ -10,7 +10,7 @@
 
 <input type="text" name="title" value="<?php echo $title;?>" /><br>
 
-<textarea type="body" cols="45" row="5"><?php echo $body;?></textarea><br>
+<textarea name="body" cols="45" row="5"><?php echo $body;?></textarea><br>
 
 <input type="submit" value="submit" />
 
