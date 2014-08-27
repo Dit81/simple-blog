@@ -6,14 +6,8 @@
 
 <script type="text/javascript" src="<?php echo base_url().'resource/ckeditor/ckeditor.js';?>"></script>
 
-<script type="text/javascript" src="<?php echo base_url().'resource/textjsurl.js';?>"></script>
-
 </head>
 <body>
-
-<script type="text/javascript">
-text();
-</script>
 
 <?php echo validation_errors();?>
 
