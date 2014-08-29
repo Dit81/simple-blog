@@ -1,13 +1,4 @@
-<html>
-
-<head>
-
-<title>Write Post</title>
-
 <script type="text/javascript" src="<?php echo base_url().'resource/ckeditor/ckeditor.js';?>"></script>
-
-</head>
-<body>
 
 <?php echo validation_errors();?>
 
@@ -22,5 +13,4 @@
 
 <script type="text/javascript">CKEDITOR.replace('body',{toolbar:'Full',skin:'moono'});</script>
 
-</body>
-</html>
+<?php echo anchor('blog','Home');?>

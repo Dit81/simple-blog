@@ -2,9 +2,9 @@
 
 class Member extends CI_Model{
 
-	public $id = '';
-	public $name = '';
-	public $passwd = '';
+	private $id = '';
+	private $name = '';
+	private $passwd = '';
 
 	function __construct(){
 		parent::__construct();
@@ -12,10 +12,7 @@ class Member extends CI_Model{
 	}
 
 	function login(){
-		$username = $_POST['name'];
-		$password = $_POST['passwd'];
-
-		$query = $this->db->get_where('members',array('name'=>$username,'passwd'=>$password));
+		$query = $this->db->get_where('members',array('name'=>$_POST['name'],'passwd'=>$_post['passwd']));
 		return $query->row_array();
 	}
 

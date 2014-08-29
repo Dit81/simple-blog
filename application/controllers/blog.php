@@ -40,7 +40,7 @@ class Blog extends CI_Controller{
 
 			$data['query'] = $this->blog_model->get_entries();
 
-			$this->load->view('header');
+			$this->load->view('header',$data);
 
 			$this->load->view('blog_view',$data);
 
@@ -56,7 +56,10 @@ class Blog extends CI_Controller{
 				$this->blog_model->insert_entry();
 				$this->load->view('post_success');
 			}else{
+				$data['title'] = 'Write Post';
+				$this->load->view('header',$data);
 				$this->load->view('post_write');
+				$this->load->view('footer');
 			}
 	}
 
@@ -77,7 +80,7 @@ class Blog extends CI_Controller{
 			
 			$data['comments'] = $this->comment_model->get_comments($id);
 
-			$this->load->view('header');
+			$this->load->view('header',$data);
 
 			$this->load->view('post_view',$data);
 
@@ -88,7 +91,7 @@ class Blog extends CI_Controller{
 		
 			$data = $this->blog_model->get_onepost($id);
 
-			$this->load->view('header');
+			$this->load->view('header',$data);
 
 			$this->load->view('edit_view',$data);
 
