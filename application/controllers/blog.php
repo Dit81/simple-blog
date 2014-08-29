@@ -17,10 +17,19 @@ class Blog extends CI_Controller{
 			if($result){
 				$this->session->set_userdata($result);
 				redirect('blog');
-				print $result['id'];
-			}else{
-				$this->load->view('login');
 			}
+		}else{
+			$this->load->view('login');
+		}
+	}
+
+	function register(){
+		if(isset($_POST['name']) && isset($_POST['passwd'])){
+			$this->load->model('member');
+			$result = $this->member->register();
+			redirect('blog/login');
+		}else{
+			$this->load->view('register');
 		}
 	}
 

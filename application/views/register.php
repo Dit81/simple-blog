@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<?php echo form_open('blog/login') ?>
+<?php echo form_open('blog/register') ?>
 
 Username:<input type="text" name="name" /><br>
 
@@ -14,7 +14,7 @@ Password:<input type="password" name="passwd" /><br>
 
 </form>
 
-<?php echo anchor('blog/register','register');?>
+<?php echo anchor('blog/login','login');?>
 
 </body>
 </html>
