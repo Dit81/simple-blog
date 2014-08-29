@@ -9,13 +9,32 @@ class Blog extends CI_Controller{
 		$this->load->helper('form');
 	}
 
+	function login(){
+		if(isset($_POST['name']) && isset($_POST['passwd'])){
+			// if the user has just try to log in
+			$this->load->model('member');
+			$result = $this->member->login();
+			if($result){
+				$this->session->set_userdata($result);
+				redirect('blog');
+				print $result['id'];
+			}else{
+				$this->load->view('login');
+			}
+		}
+	}
+
 	function index(){
-		$data['title'] = 'My Blog Title';
-		$data['heading'] = 'My Blog Heading';
+		if(empty($this->session->userdata['id'])){
+			$this->load->view('login');
+		}else{
+			$data['title'] = 'My Blog Title';
+			$data['heading'] = 'My Blog Heading';
 
-		$data['query'] = $this->blog_model->get_entries();
+			$data['query'] = $this->blog_model->get_entries();
 
-		$this->load->view('blog_view',$data);
+			$this->load->view('blog_view',$data);
+		}
 	}
 
 	function write(){
