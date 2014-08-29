@@ -1,6 +1,3 @@
-<html>
-<head><title><?php echo $title;?></title></head>
-<body>
 <h3><?php echo $title;?></h3>
 <p><?php echo $body;?></p><hr>
 <div class="comment">
@@ -20,5 +17,3 @@
 </form>
 </div>
 <p><?php echo anchor('blog','Home');?></p>
-</body>
-</html>

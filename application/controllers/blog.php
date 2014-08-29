@@ -34,22 +34,21 @@ class Blog extends CI_Controller{
 	}
 
 	function index(){
-		if(empty($this->session->userdata['id'])){
-			$this->load->view('login');
-		}else{
+			
 			$data['title'] = 'My Blog Title';
 			$data['heading'] = 'My Blog Heading';
 
 			$data['query'] = $this->blog_model->get_entries();
 
+			$this->load->view('header');
+
 			$this->load->view('blog_view',$data);
-		}
+
+			$this->load->view('footer');
+
 	}
 
 	function write(){
-		if(empty($this->session->userdata['id'])){
-			$this->load->view('login');
-		}else{
 			$this->load->library('form_validation');
 			$this->form_validation->set_rules('title','title','required');
 			$this->form_validation->set_rules('body','boby','required');
@@ -59,26 +58,18 @@ class Blog extends CI_Controller{
 			}else{
 				$this->load->view('post_write');
 			}
-		}
 	}
 
 	function del($id){
-		if(empty($this->session->userdata['id'])){
-			$this->load->view('login');
-		}else{
 
 			$result = $this->blog_model->del($id);
 
 			if($result>0){
 				$this->load->view('post_delete');
 			}
-		}
 	}
 
 	function post($id){
-		if(empty($this->session->userdata['id'])){
-			$this->load->view('login');
-		}else{
 
 			$data = $this->blog_model->get_onepost($id);
 
@@ -86,25 +77,26 @@ class Blog extends CI_Controller{
 			
 			$data['comments'] = $this->comment_model->get_comments($id);
 
+			$this->load->view('header');
+
 			$this->load->view('post_view',$data);
-		}
+
+			$this->load->view('footer');
 	}
 
 	function edit($id){
-		if(empty($this->session->userdata['id'])){
-			$this->load->view('login');
-		}else{
 		
 			$data = $this->blog_model->get_onepost($id);
 
+			$this->load->view('header');
+
 			$this->load->view('edit_view',$data);
-		}
+
+			$this->load->view('footer');
 	}
 
 	function update(){
-		if(empty($this->session->userdata['id'])){
-			$this->load->view('login');
-		}else{
+
 			$this->load->library('form_validation');
 			$this->form_validation->set_rules('title','title','required');
 			$this->form_validation->set_rules('body','boby','required');
@@ -112,7 +104,6 @@ class Blog extends CI_Controller{
 				$this->blog_model->update_entry();
 				redirect('blog/post/'.$_POST['id']);
 			}
-		}
 	}
 
 }

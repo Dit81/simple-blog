@@ -1,7 +1,3 @@
-<html>
-<head><title><?php echo $title;?></title></head>
-<body>
-
 <?php echo validation_errors();?>
 
 <?php echo form_open('blog/update') ?>
@@ -15,6 +11,3 @@
 <input type="submit" value="submit" />
 
 </form>
-
-</body>
-</html>

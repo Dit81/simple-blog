@@ -1,8 +1,3 @@
-<html>
-<head>
-<title><?php echo $title;?></title>
-</head>
-<body>
 <h1><?php echo $heading;?></h1>
 <p>My ID is: <?php echo $this->session->userdata['id'];?>
 <ol>
@@ -18,6 +13,3 @@
 <?php endforeach;?>
 
 <?php echo anchor('blog/write','Write Post');?>
-
-</body>
-</html>
