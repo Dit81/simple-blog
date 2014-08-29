@@ -4,6 +4,7 @@
 </head>
 <body>
 <h1><?php echo $heading;?></h1>
+<p>My ID is: <?php echo $this->session->userdata['id'];?>
 <ol>
 <?php foreach($query as $row):?>
 
