@@ -5,20 +5,22 @@ class Blog_model extends CI_Model{
 	public $id = '';
 	public $title = '';
 	public $body = '';
+	public $author_id = '';
 
 	function __construct(){
 		parent::__construct();
 		$this->load->database();
 	}
 
-	function get_entries(){
-		$query = $this->db->get('entries');
+	function get_entries($author_id){
+		$query = $this->db->get_where('entries',array('author_id'=>$author_id));
 		return $query->result();
 	}
 
 	function insert_entry(){
 		$this->title = $_POST['title'];
 		$this->body = $_POST['body'];
+		$this->author_id = $_POST['author_id'];
 
 		$result = $this->db->insert('entries', $this);
 		return $result;	

@@ -12,7 +12,7 @@ class Member extends CI_Model{
 	}
 
 	function login(){
-		$query = $this->db->get_where('members',array('name'=>$_POST['name'],'passwd'=>$_post['passwd']));
+		$query = $this->db->get_where('members',array('name'=>$_POST['name'],'passwd'=>$_POST['passwd']));
 		return $query->row_array();
 	}
 

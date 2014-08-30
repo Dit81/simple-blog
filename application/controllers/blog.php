@@ -38,7 +38,9 @@ class Blog extends CI_Controller{
 			$data['title'] = 'My Blog Title';
 			$data['heading'] = 'My Blog Heading';
 
-			$data['query'] = $this->blog_model->get_entries();
+			$author_id = $this->session->userdata['id'];
+
+			$data['query'] = $this->blog_model->get_entries($author_id);
 
 			$this->load->view('header',$data);
 

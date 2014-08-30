@@ -4,6 +4,7 @@
 
 <?php echo form_open('blog/write') ?>
 
+<input type="hidden" name="author_id" value="<?php echo $this->session->userdata['id'];?>" />
 <input type="text" name="title" /><br>
 <textarea name="body" cols="45" row="5" class="ckeditor"></textarea>
 <br>
