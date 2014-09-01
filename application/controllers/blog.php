@@ -42,6 +42,10 @@ class Blog extends CI_Controller{
 
 			$data['query'] = $this->blog_model->get_entries($author_id);
 
+			$len = count($data['query']);
+
+			$page = ceil($len/4);
+
 			$this->load->view('header',$data);
 
 			$this->load->view('blog_view',$data);

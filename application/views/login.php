@@ -4,6 +4,8 @@
 </head>
 <body>
 
+<p>You havn't logged in yet.</p>
+
 <?php echo form_open('blog/login') ?>
 
 Username:<input type="text" name="name" /><br>
@@ -14,7 +16,7 @@ Password:<input type="password" name="passwd" /><br>
 
 </form>
 
-<?php echo anchor('blog/register','register');?>
+<span>Don't have an account? </span><?php echo anchor('blog/register','register');?>
 
 </body>
 </html>

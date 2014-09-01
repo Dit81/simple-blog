@@ -17,15 +17,27 @@ class Comment extends CI_Controller{
 		}
 	}
 
-	function get_comments($post_id){
-		$query = $this->db->get_where('comments',array('post_id'=>$post_id));
-		return $query->row_array();
-	}
-
 	function del($id){
 		$result = $this->comment_model->del($id);
 		if($result>0){
 			print 'delete successfully.';
 		}
+	}
+
+	function reply($id,$post_id){
+		$this->load->helper('form');
+
+		$data['title'] = 'Reply comment';
+
+		$data['reply_to'] = $id;
+
+		$data['post_id'] = $post_id;
+
+		$this->load->view('header',$data);
+
+		$this->load->view('comment_reply',$data);
+
+		$this->load->view('footer');
+		
 	}
 }
