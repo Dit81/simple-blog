@@ -17,6 +17,11 @@ class Blog_model extends CI_Model{
 		return $query->result();
 	}
 
+	function get_pentries($author_id,$limit,$offset){
+		$query = $this->db->get_where('entries',array('author_id'=>$author_id),$limit,$offset);
+		return $query->result();
+	}
+
 	function insert_entry(){
 		$this->title = $_POST['title'];
 		$this->body = $_POST['body'];

@@ -40,11 +40,27 @@ class Blog extends CI_Controller{
 
 			$author_id = $this->session->userdata['id'];
 
-			$data['query'] = $this->blog_model->get_entries($author_id);
+			$pag['query'] = $this->blog_model->get_entries($author_id);
 
-			$len = count($data['query']);
+			$this->load->library('pagination');
 
-			$page = ceil($len/4);
+			$config['base_url'] = base_url().'index.php/blog/index';
+
+			$config['total_rows'] = count($pag['query']);
+
+			$config['per_page'] = '4';
+
+			$config['first_link'] = 'first page';
+
+			$config['last_link'] = 'last page';
+
+			$config['full_tag_open'] = '<div>';
+
+			$config['full_tag_close'] = '</div>';
+
+			$this->pagination->initialize($config);
+
+			$data['query'] = $this->blog_model->get_pentries($author_id,$config['per_page'],$this->uri->segment(3));
 
 			$this->load->view('header',$data);
 

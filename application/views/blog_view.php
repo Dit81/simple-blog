@@ -14,6 +14,8 @@
 
 <?php endforeach;?>
 
+<?php echo $this->pagination->create_links();?>
+
 <?php echo anchor('blog/write','Write Post');?>
 
 </ol>
