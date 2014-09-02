@@ -1,4 +1,5 @@
-<h3><?php echo $title;?></h3>
+<h3><?php echo $title;?> </h3> 
+<span><?php echo anchor('blog/edit/'.$id,'edit');?></span>
 <p><?php echo $body;?></p><hr>
 <div class="comment">
 <p>Comments:</p>
